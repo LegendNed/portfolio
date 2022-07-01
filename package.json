@@ -8,10 +8,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "date-and-time": "^2.4.0",
+    "detect-gpu": "^4.0.28",
+    "mitt": "^3.0.0",
+    "three": "^0.141.0",
+    "vue": "^3.2.25",
+    "vue-final-modal": "^3.4.4"
   },
   "devDependencies": {
+    "@types/three": "^0.141.0",
     "@vitejs/plugin-vue": "^2.3.3",
+    "sass": "^1.52.3",
     "typescript": "^4.5.4",
     "vite": "^2.9.9",
     "vue-tsc": "^0.34.7"

@@ -1,21 +1,26 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import "./util/background";
+
+import Dock from "./components/dock/index.vue";
+import Navigation from "./components/navigation.vue";
+import Windows from "./components/windows/index.vue";
+
+setTimeout(function () {
+  let loader = document.getElementsByClassName("loader")[0] as HTMLElement;
+  loader?.parentElement?.removeChild(loader);
+
+  document
+    .getElementsByTagName("canvas")[0]
+    .style.setProperty("display", "block", "important");
+
+  document
+    .getElementById("app")
+    .style.setProperty("display", "block", "important");
+}, 3500);
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <Navigation />
+  <Windows />
+  <Dock />
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
