@@ -3,7 +3,7 @@
 
 ## Features 📃
 ⚡️ Written in Vue\
-⚡️ Fully Responsive\
+⚡️ Partially Responsive\
 ⚡️ Easy to modify
 
 ## Installation & Deployment 📖
