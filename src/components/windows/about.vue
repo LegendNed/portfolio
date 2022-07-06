@@ -8,7 +8,7 @@
           <img
             src="src/assets/images/me.png"
             width="250"
-            class="mhmm-rounded"
+            style="border-radius: 0.4rem"
           />
         </div>
       </div>

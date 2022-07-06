@@ -11,14 +11,12 @@ body {
   background-image:
     radial-gradient(circle at top right, rgba(121, 68, 154, 0.13), transparent),
     radial-gradient(circle at 20% 80%, rgba(41, 196, 255, 0.13), transparent);
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  font: 14px "Roboto", sans-serif;
   font-size: 14px;
+
   padding: 0px;
   margin: 0px;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  counter-reset: section;
+  overflow: hidden;
 
   animation: fadeInBlur;
   animation-duration: 2s;
@@ -102,17 +100,9 @@ h4 {
   align-items: center;
 }
 
-.mhmm-rounded {
-  border-radius: 0.4rem
-}
-
 .new-line {
   white-space: pre-wrap;
   margin-right: 10px;
-}
-
-.inline {
-  display: inline-block;
 }
 
 .divider {
@@ -201,6 +191,7 @@ h4 {
   }
 }
 
+/* Start of Traffic Lights content */
 /* Credits to Ícaro Heimig */
 
 $close-red: #ff6159;
@@ -355,13 +346,8 @@ $disabled-gray: #ddd;
   }
 }
 
-/* End of credits to Ícaro Heimig */
-
+/* End of traffic light content*/
 /* End of styling for window*/
-
-.cat {
-  width: 246px;
-}
 
 /* Start of Navigation styling */
 
@@ -443,18 +429,18 @@ audio {
 
 .dock {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 0px 0px;
-  grid-template-areas: ". . . . . .";
+  grid-template-columns: repeat(auto-fill, 62px);
+
   position: fixed;
   bottom: 0px;
   left: 50%;
   transform: translate(-50%, 0%);
+
   background-color: rgb(26, 32, 44, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  width: 370px;
+
+  width: 372px;
   height: 30px;
   border-radius: 10px 10px 0 0;
   z-index: 2000;
@@ -465,15 +451,13 @@ audio {
 
   &-icon {
     display: grid;
-    grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
-    grid-template-areas: "."".";
+
     color: white;
     font-size: 12px;
     font-weight: 700;
     position: relative;
-    width: 60px;
+    width: 62px;
     top: -30px;
     cursor: pointer;
 
@@ -493,12 +477,12 @@ audio {
 
 .socials {
   margin-bottom: 5px;
-}
 
-.socials h4 {
-  display: inline-block;
-  margin-left: 10px;
-  vertical-align: 3px;
+  & h4 {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: 3px;
+  }
 }
 
 /* End of Dock styling */
@@ -698,10 +682,6 @@ translate(-325%, 0);
     &-time {
       text-align: left;
     }
-  }
-
-  .cat {
-    width: 200px;
   }
 
   #about-image {

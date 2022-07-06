@@ -11,16 +11,6 @@
             "position": "Head Developer"
         },
         {
-            "name": "PV Worker",
-            "url": {
-                "text": "Private",
-                "href": ""
-            },
-            "text": "A PWA (Mobile App), for the employees of a polish solar company, that allows them manage their installations for clients.",
-            "period": "Developed in 2+ months",
-            "position": "Developer"
-        },
-        {
             "name": "Stera",
             "url": {
                 "text": "Not available yet",
@@ -41,6 +31,16 @@
             "text": "A Discord bot that got me into coding! However, it didn't last long as I ended up resigning ownership of it and transfer it to someone else.",
             "period": "Was available for 14 months",
             "position": "Former Founder"
+        },
+        {
+            "name": "PV Worker",
+            "url": {
+                "text": "Private",
+                "href": ""
+            },
+            "text": "A PWA (Mobile App), for the employees of a polish solar company, that allows them manage their installations for clients.",
+            "period": "Developed in 2+ months",
+            "position": "Developer"
         }
     ]
 }

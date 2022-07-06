@@ -113,7 +113,7 @@ function update(event: any) {
   let openedAmount = vfm.openedModals.length;
 
   if (openedAmount >= 3) {
-    let toggleIndex = vfm.openedModals[0].props.name === "projects" ? 1 : 0;
+    let toggleIndex = Number(vfm.openedModals[0].props.name == "projects");
     vfm.openedModals[toggleIndex].toggle();
     stack.emit("reduce");
   }
@@ -124,9 +124,6 @@ function update(event: any) {
 
     let modal = event.ref.vfmContent._value;
     modal.style.transform = offset;
-    modal.style["-webkit-transform:"] = offset;
-    modal.style["-moz-transform:"] = offset;
-    modal.style["-ms-transform"] = offset;
   }
 
   stack.emit("increase");

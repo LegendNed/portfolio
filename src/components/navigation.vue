@@ -62,8 +62,8 @@
                 ? lData.item.album.images[0].url
                 : `src/assets/images/nothing.jpg`
             "
-            style="width: 150px"
-            class="mhmm-rounded"
+            width="150"
+            style="border-radius: 0.4rem"
           />
         </div>
       </div>
