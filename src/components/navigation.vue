@@ -124,7 +124,7 @@ function shutdown() {
 
 const player: any = ref(null);
 onMounted(() => {
-  player.volume = 0.3;
-  watch(lData, () => player.load());
+  player.value.volume = 0.3;
+  watch(lData, () => player.value.load());
 });
 </script>
