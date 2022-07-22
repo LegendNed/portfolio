@@ -1,7 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 import SpotifyWebApi from 'spotify-web-api-node';
-
 const spotifyApi = new SpotifyWebApi({
     clientId: process.env.clientId,
     clientSecret: process.env.clientSecret,
@@ -10,32 +9,21 @@ const spotifyApi = new SpotifyWebApi({
         : `http://localhost:3000/api/callback`
 });
 
-import { readFileSync, writeFileSync } from 'fs';
-import path from 'path';
+import Redis from 'ioredis'
+const redis = new Redis(process.env.REDIS_URL as string)
 
-const file = path.join(process.cwd(), 'api', 'config.json');
-const config = JSON.parse(readFileSync(file, 'utf8'))
-
-function writeFile() {
-    const data = JSON.stringify(config, null, 2);
-    writeFileSync(file, data, 'utf8');
-}
-
-if (config.accessToken && config.refreshToken) {
-    spotifyApi.setAccessToken(config.accessToken);
-    spotifyApi.setRefreshToken(config.refreshToken);
-}
-
-export default function (req: VercelRequest, res: VercelResponse) {
+export default async function (req: VercelRequest, res: VercelResponse) {
     const { type } = req.query
 
     if (type === 'listening') {
-        if (!config.first) {
-            config.first = true
-            writeFile()
+        let accessToken = await redis.hget('tokens', 'access')
 
+        if (!accessToken)
             return res.redirect(spotifyApi.createAuthorizeURL(['user-read-currently-playing'], 'state'));
-        }
+
+        const refreshToken = await redis.hget('tokens', 'refresh')
+        spotifyApi.setAccessToken(accessToken)
+        spotifyApi.setRefreshToken(refreshToken as string)
 
         function getTrack() {
             spotifyApi
@@ -51,7 +39,7 @@ export default function (req: VercelRequest, res: VercelResponse) {
                         .refreshAccessToken()
                         .then((data) => {
                             spotifyApi.setAccessToken(data.body['access_token'])
-                            writeFile()
+                            redis.hset('tokens', 'access', data.body['access_token'])
 
                             getTrack()
                         })
@@ -68,9 +56,8 @@ export default function (req: VercelRequest, res: VercelResponse) {
             spotifyApi.setAccessToken(data.body['access_token']);
             spotifyApi.setRefreshToken(data.body['refresh_token']);
 
-            config.accessToken = data.body['access_token']
-            config.refreshToken = data.body['refresh_token']
-            writeFile()
+            redis.hset('tokens', 'access', data.body['access_token'])
+            redis.hset('tokens', 'refresh', data.body['refresh_token'])
 
             return res.redirect('/api/listening')
         })
