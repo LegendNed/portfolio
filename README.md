@@ -38,7 +38,7 @@
     ? Want to modify these settings? [y/N] n
 
 ### 2) Setup
-1. Modify the configuration files found in `src/assets/windows/` and ensure to change the photo found in `src/images/me.png`.
+1. Modify the configuration files found in `src/assets/windows/`, ensure to change the photo found in `src/images/me.png` and lastly change details within `index.html`.
     1. (Optional) Change the qoutes as they they were randomly generated, found in `src/assets/quotes.json`
 2. Create an application on [Spotify Developer Portal](https://developer.spotify.com/dashboard/applications)\
 Choose **edit settings** then in website field, enter your webiste URL (e.g. https://nedas.codes/) then in the **Redirect URIs** enter your website URL ending with `/api/callback` (e.g. https://nedas.codes/api/callback)
