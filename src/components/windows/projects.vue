@@ -19,7 +19,7 @@
           :key="item.name"
           @click="change(item)"
         >
-          <img src="src/assets/images/folder.png" />
+          <img :src="imgFolder" />
           <h4>{{ item.name }}</h4>
         </div>
       </div>
@@ -35,7 +35,7 @@
           :key="item.name"
           @click="change(item)"
         >
-          <img src="src/assets/images/folder.png" />
+          <img :src="imgFolder" />
           <h4>{{ item.name }}</h4>
         </div>
       </div>
@@ -68,6 +68,7 @@
 
 <script setup lang="ts">
 import { ref, inject } from "vue";
+import imgFolder from "../../assets/images/folder.png";
 
 import projects from "../../assets/windows/projects.json";
 

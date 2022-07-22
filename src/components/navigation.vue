@@ -58,9 +58,7 @@
         <div style="margin-left: 25px; width: 150px">
           <img
             :src="
-              lData.is_playing
-                ? lData.item.album.images[0].url
-                : `src/assets/images/nothing.jpg`
+              lData.is_playing ? lData.item.album.images[0].url : nothingImage
             "
             width="150"
             style="border-radius: 0.4rem"
@@ -78,6 +76,8 @@ import ElevatorMusic from "../assets/audio.mp3";
 import quotes from "../assets/quotes.json";
 import date from "date-and-time";
 
+import nothingImage from "../assets/images/nothing.jpg";
+
 const vfm: any = inject("$vfm");
 const quote = ref(quotes[Math.floor(Math.random() * quotes.length)]);
 
@@ -91,6 +91,7 @@ setInterval(updateTime, 1000);
 
 let listeningWindow = ref(false),
   lData: any = ref({});
+
 function listening() {
   if (listeningWindow.value) return vfm.toggle("listening");
 

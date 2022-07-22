@@ -11,7 +11,7 @@
         <div class="socials">
           <div v-if="item.name == 'br'" style="margin-bottom: 10px" />
           <div v-else>
-            <img :src="`src/assets/images/${item.name}.png`" width="16" />
+            <img :src="images[item.name]" width="16" />
             <h4>{{ item.name }}</h4>
           </div>
         </div>
@@ -31,4 +31,16 @@ import { ref } from "vue";
 import socials from "../../assets/windows/socials.json";
 
 const show = ref(false);
+
+let images: any = {};
+for (let social of socials) {
+  if (social.name == "br") continue;
+
+  let image: any = new URL(
+    `../../assets/images/${social.name}.png`,
+    import.meta.url
+  );
+
+  images[social.name] = image;
+}
 </script>

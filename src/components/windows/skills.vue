@@ -20,5 +20,5 @@ import { ref } from "vue";
 import skills from "../../assets/windows/skills.json";
 
 const show = ref(false);
-const text = ref(skills.text.join(`\n\n`));
+const text = skills.text.join(`\n\n`);
 </script>

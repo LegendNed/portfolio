@@ -5,11 +5,7 @@
       <div class="space-between">
         <div class="new-line" ref="content" v-html="text" />
         <div id="about-image">
-          <img
-            src="src/assets/images/me.png"
-            width="250"
-            style="border-radius: 0.4rem"
-          />
+          <img :src="imgMe" width="250" style="border-radius: 0.4rem" />
         </div>
       </div>
     </template>
@@ -19,6 +15,8 @@
 <script setup lang="ts">
 import { ref, inject, onMounted } from "vue";
 import text from "../../assets/windows/about";
+
+import imgMe from "../../assets/images/me.png";
 
 const show = ref(false);
 
