@@ -29,3 +29,5 @@ dist-ssr
 .vercel
 
 .env
+package-lock.json
+yarn.lock
