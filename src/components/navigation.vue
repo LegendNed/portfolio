@@ -98,7 +98,7 @@ function listening() {
   const controller = new AbortController();
   setTimeout(() => controller.abort(), 2000);
 
-  fetch("/listening", { signal: controller.signal })
+  fetch("/api/listening", { signal: controller.signal })
     .then((response) => response.json())
     .then((data: any) => (lData.value = data))
     .finally(() => vfm.toggle("listening"));
