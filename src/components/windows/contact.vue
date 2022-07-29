@@ -8,7 +8,7 @@
   >
     <template v-slot:title>Contact me</template>
     <template v-slot:content>
-      <form class="contact" @submit.prevent="contact">
+      <form class="contact" @submit.prevent="contact" aria-hidden="true">
         <input
           type="email"
           name="email"

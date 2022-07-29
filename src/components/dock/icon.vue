@@ -1,5 +1,5 @@
 <template>
-  <div class="dock-icon">
+  <div class="dock-icon" tabindex="0">
     <img :src="image" />
     <span>{{ text }}</span>
   </div>

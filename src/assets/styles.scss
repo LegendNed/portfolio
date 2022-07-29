@@ -308,6 +308,10 @@ $disabled-gray: #ddd;
     &:active:hover:after {
       background-color: $close-red-icon-active;
     }
+
+    &:focus {
+      outline: $close-red-active solid 4px !important;
+    }
   }
 
   &-minimize {
@@ -319,6 +323,10 @@ $disabled-gray: #ddd;
 
     &:active:hover:before {
       background-color: $minimize-yellow-icon-active;
+    }
+
+    &:focus {
+      outline: $minimize-yellow-active solid 4px !important;
     }
   }
 
@@ -342,6 +350,10 @@ $disabled-gray: #ddd;
 
     &:active:hover:after {
       background-color: $maximize-green-active;
+    }
+
+    &:focus {
+      outline: $maximize-green-active solid 4px !important;
     }
   }
 }
@@ -506,18 +518,20 @@ audio {
     outline: none;
     resize: none;
     transition: border-color 0.2s;
-  }
 
-  input::placeholder,
-  textarea::placeholder {
-    color: $red;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
+    &::placeholder {
+      color: $red;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
 
-  input:focus,
-  textarea:focus {
-    border-bottom-color: white;
+    &:focus {
+      border-color: white;
+
+      &::placeholder {
+        color: white;
+      }
+    }
   }
 
   textarea {
@@ -542,6 +556,11 @@ audio {
     outline: none;
     border: none;
     border-radius: 4px;
+
+    &:focus,
+    &:hover {
+      background: lighten($red, 10%);
+    }
   }
 
   p {

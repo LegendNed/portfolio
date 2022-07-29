@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-bar">
+  <div class="nav-bar" aria-hidden="true">
     <div class="nav-quote">{{ quote }}</div>
     <div class="nav-time">{{ time }}</div>
     <div class="nav-icons">
@@ -8,17 +8,11 @@
       <icon icon="power-off" @click="shutdown" />
     </div>
   </div>
-  <Modal
-    v-if="lData"
-    v-model="listeningWindow"
-    :fullscreen="false"
-    name="listening"
-    width="450px"
-  >
+  <Modal v-if="lData" v-model="listeningWindow" name="listening" width="450px">
     <template v-slot:title>I'm currently listening to...</template>
     <template v-slot:content>
       <div class="space-between">
-        <div>
+        <div aria-live="off">
           <a
             :href="
               lData.is_playing ? lData.item.album.external_urls.spotify : ''
@@ -26,7 +20,7 @@
             target="_blank"
           >
             <h1 style="margin: 0">
-              <abbr :title="formatName(lData)">
+              <abbr :title="formatName(lData)" aria-hidden="true">
                 {{ formatName(lData, true) }}
               </abbr>
             </h1>
@@ -43,10 +37,16 @@
               {{ index + 1 == lData.item.artists.length ? "" : ", " }}
             </h3>
           </div>
-          <h3 v-else style="margin: 0">By nobody...</h3>
+          <h3 v-else style="margin: 0" aria-hidden="true">By nobody...</h3>
           <div style="margin-left: -20px">
-            <p style="margin: 20px 0 -17px 20px">Preview</p>
-            <audio id="audio" ref="player" controls controlsList="nodownload">
+            <p style="margin: 20px 0 -17px 20px" aria-hidden="true">Preview</p>
+            <audio
+              id="audio"
+              ref="player"
+              controls
+              controlsList="nodownload"
+              aria-hidden="true"
+            >
               <source
                 v-bind:src="lData.is_playing ? lData.item.preview_url : ''"
                 type="audio/mpeg"

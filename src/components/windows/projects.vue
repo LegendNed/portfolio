@@ -18,6 +18,8 @@
           v-for="item in projects.cur"
           :key="item.name"
           @click="change(item)"
+          @keyup.enter.space="change(item)"
+          tabindex="0"
         >
           <img :src="imgFolder" />
           <h4>{{ item.name }}</h4>
@@ -34,6 +36,8 @@
           v-for="item in projects.old"
           :key="item.name"
           @click="change(item)"
+          @keyup.enter.space="change(item)"
+          tabindex="0"
         >
           <img :src="imgFolder" />
           <h4>{{ item.name }}</h4>

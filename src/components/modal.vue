@@ -1,76 +1,76 @@
 <template>
-  <div>
-    <vue-final-modal
-      v-bind="$attrs"
-      :name="name"
-      :click-to-close="false"
-      :prevent-click="true"
-      :hide-overlay="true"
-      classes="window"
-      :content-class="[
-        'window-content',
-        ...(toggleFullscreen ? ['window-fullscreen'] : []),
-      ]"
-      :content-style="{ width: width }"
-      :drag="true"
-      :fit-parent="false"
-      drag-selector=".window-navigation"
-      @before-open="update"
-      @click="stack.emit('update', name)"
-      @drag:start="stack.emit('update', name)"
-    >
-      <div class="window-navigation">
-        <div class="traffic-lights focus">
-          <button
-            :class="`traffic-light traffic-light-close ${
-              !closable ? 'disabled' : ''
-            }`"
-            id="close"
-            @click="close"
-          >
-            <svg width="7" height="7" xmlns="http://www.w3.org/2000/svg">
-              <path
-                stroke="#000"
-                stroke-width="1.2"
-                stroke-linecap="round"
-                d="M1.182 5.99L5.99 1.182M5.99 6.132L1.182 1.323"
-              />
-            </svg>
-          </button>
-          <button
-            class="traffic-light traffic-light-minimize disabled"
-            id="minimize"
-          >
-            <svg width="7" height="2" xmlns="http://www.w3.org/2000/svg">
-              <path
-                stroke="#000"
-                stroke-width="1.2"
-                stroke-linecap="round"
-                d="M.61.703h5.8"
-              />
-            </svg>
-          </button>
-          <button
-            :class="`traffic-light traffic-light-maximize ${
-              !fullscreen ? 'disabled' : ''
-            }`"
-            id="maximize"
-            @click="maximise"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.73 15">
-              <polyline points="0 15 0 3.38 11.29 15" />
-              <polyline points="14.73 10.89 14.73 0 4.28 0" />
-            </svg>
-          </button>
-        </div>
+  <vue-final-modal
+    v-bind="$attrs"
+    :name="name"
+    :click-to-close="false"
+    :prevent-click="true"
+    :hide-overlay="true"
+    classes="window"
+    :content-class="[
+      'window-content',
+      ...(toggleFullscreen ? ['window-fullscreen'] : []),
+    ]"
+    :content-style="{ width: width }"
+    :drag="true"
+    :fit-parent="false"
+    drag-selector=".window-navigation"
+    @before-open="update"
+    @click="stack.emit('update', name)"
+    @drag:start="stack.emit('update', name)"
+  >
+    <div class="window-navigation">
+      <div class="traffic-lights focus">
+        <button
+          :class="`traffic-light traffic-light-close ${
+            !closable ? 'disabled' : ''
+          }`"
+          id="close"
+          @click="close"
+        >
+          <svg width="7" height="7" xmlns="http://www.w3.org/2000/svg">
+            <path
+              stroke="#000"
+              stroke-width="1.2"
+              stroke-linecap="round"
+              d="M1.182 5.99L5.99 1.182M5.99 6.132L1.182 1.323"
+            />
+          </svg>
+        </button>
+        <button
+          class="traffic-light traffic-light-minimize disabled"
+          id="minimize"
+          :tabindex="false ? '0' : '-1'"
+        >
+          <svg width="7" height="2" xmlns="http://www.w3.org/2000/svg">
+            <path
+              stroke="#000"
+              stroke-width="1.2"
+              stroke-linecap="round"
+              d="M.61.703h5.8"
+            />
+          </svg>
+        </button>
+        <button
+          :class="`traffic-light traffic-light-maximize ${
+            !fullscreen ? 'disabled' : ''
+          }`"
+          id="maximize"
+          @click="maximise"
+          :tabindex="fullscreen ? '0' : '-1'"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.73 15">
+            <polyline points="0 15 0 3.38 11.29 15" />
+            <polyline points="14.73 10.89 14.73 0 4.28 0" />
+          </svg>
+        </button>
+      </div>
 
-        <slot name="title" />
-      </div>
-      <div class="window-inside">
-        <slot name="content" />
-      </div>
-    </vue-final-modal>
-  </div>
+      <slot name="title" />
+    </div>
+    <section class="window-inside">
+      <slot name="content" />
+    </section>
+  </vue-final-modal>
 </template>
 
 <script setup lang="ts">

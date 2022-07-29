@@ -16,9 +16,11 @@
           </div>
         </div>
         <h4 class="socials">
-          <b>
-            <a :href="item.href" target="_blank">{{ item.text || "" }}</a>
-          </b>
+          <strong>
+            <a :href="item.href" aria-hidden="true" target="_blank">{{
+              item.text || ""
+            }}</a>
+          </strong>
         </h4>
       </div>
     </template>

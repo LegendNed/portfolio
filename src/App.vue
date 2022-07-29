@@ -28,6 +28,7 @@ let stackIndex = 0,
 
 stack.on("update", (name: string) => {
   const recent = vfm.openedModals[vfm.openedModals.length - 1];
+  if (!recent) return;
 
   if (recent.props.name == "project")
     if (Date.now() - recent.params.value.last < 150) return;

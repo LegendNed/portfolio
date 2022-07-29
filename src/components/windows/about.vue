@@ -24,12 +24,20 @@ const vfm: any = inject("$vfm");
 
 const content: any = ref(null);
 onMounted(() => {
-  content.value
-    .querySelector("#clickable")
-    .addEventListener("click", function (event: any) {
-      event.preventDefault();
-      vfm.hide("about");
-      vfm.show("contact");
-    });
+  let clickable = content.value.querySelector("#clickable");
+
+  clickable.addEventListener("click", toggleAbout);
+  clickable.addEventListener("keypress", toggleAbout);
 });
+
+function toggleAbout(event: any) {
+  event.preventDefault();
+  console.log(event);
+  if (event.key) {
+    if (!["Enter", "Space"].includes(event.code)) return;
+  }
+
+  vfm.hide("about");
+  vfm.show("contact");
+}
 </script>
