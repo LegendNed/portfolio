@@ -1,0 +1,29 @@
+{
+    "text": [
+        "Since I began the journey of programming as a hobby nearly <strong style=\"color: #A14151\">3 years</strong> ago, I have quickly developed that hobby into client work that ranges in difficulties, from consulting someone's startup idea to collaborating with people to complete a project/product.",
+        "I create <strong style=\"color: #A14151\">full-stack applications</strong> that can securely and quickly communicate with websites reliably, while guaranteeing a responsive layout for the user's to access. The main area of my expertise is back-end development, Node JS, creating projects that scale to demand to developing custom frameworks that guarantee user friendly code to ensure readability.",
+        "Regardless of that, this doesn't stop me from building small to medium websites or applications, using frameworks such as Vue or Electron."
+    ],
+    "skills": [
+        {
+            "name": "Back-End",
+            "value": "65%"
+        },
+        {
+            "name": "TypeScript",
+            "value": "80%"
+        },
+        {
+            "name": "MongoDB",
+            "value": "70%"
+        },
+        {
+            "name": "Front-End",
+            "value": "60%"
+        },
+        {
+            "name": "Vue.JS",
+            "value": "65%"
+        }
+    ]
+}

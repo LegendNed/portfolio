@@ -1,0 +1,46 @@
+{
+    "cur": [
+        {
+            "name": "Steamtools",
+            "url": {
+                "text": "https://steamtools.eu/services",
+                "href": "https://steamtools.eu/services"
+            },
+            "text": "A service that provides free to paid fools for the Application Steam, from having your account ran on our servers to retrieving statistics.\nHomepage will be rebuilt by me soon!",
+            "period": "Side Project | 18+ months",
+            "position": "Head Developer"
+        },
+        {
+            "name": "Stera",
+            "url": {
+                "text": "Not available yet",
+                "href": ""
+            },
+            "text": "A service that automatically uploads Shadowplay clips straight to the internet, making it easy and simple to share it with friends or to store clips!",
+            "period": "Coming soon...",
+            "position": "Na"
+        }
+    ],
+    "old": [
+        {
+            "name": "Dustie",
+            "url": {
+                "text": "Shutdown",
+                "href": ""
+            },
+            "text": "A Discord bot that got me into coding! However, it didn't last long as I ended up resigning ownership of it and transfer it to someone else.",
+            "period": "Was available for 14 months",
+            "position": "Former Founder"
+        },
+        {
+            "name": "PV Worker",
+            "url": {
+                "text": "Private",
+                "href": ""
+            },
+            "text": "A PWA (Mobile App), for the employees of a polish solar company, that allows them manage their installations for clients.",
+            "period": "Developed in 2+ months",
+            "position": "Developer"
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+# Top-level configuration
+name = "portfolio-api"
+main = "api/index.ts"
+compatibility_date = "2024-10-22"
+compatibility_flags = ["nodejs_compat"]
+
+route = { pattern = "portfolio.nedas.codes/api/*", zone_name = "nedas.codes" }
+
+[observability]
+enabled = true
