@@ -5,6 +5,9 @@ type Events = {
         name: string
         force?: boolean
     }
+    "focus-window": {
+        name: string
+    }
 }
 
 export const emitter = mitt<Events>()

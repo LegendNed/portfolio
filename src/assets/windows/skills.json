@@ -1,29 +1,39 @@
 {
     "text": [
-        "Since I began the journey of programming as a hobby nearly <strong style=\"color: #A14151\">3 years</strong> ago, I have quickly developed that hobby into client work that ranges in difficulties, from consulting someone's startup idea to collaborating with people to complete a project/product.",
-        "I create <strong style=\"color: #A14151\">full-stack applications</strong> that can securely and quickly communicate with websites reliably, while guaranteeing a responsive layout for the user's to access. The main area of my expertise is back-end development, Node JS, creating projects that scale to demand to developing custom frameworks that guarantee user friendly code to ensure readability.",
-        "Regardless of that, this doesn't stop me from building small to medium websites or applications, using frameworks such as Vue or Electron."
+        "I started programming as a hobby in <strong style=\"color: #A14151\">2018</strong>, and have since developed it into a professional career. I've been working as a full-time software developer for nearly 2 years, focusing on building and maintaining enterprise applications.",
+        "I specialize in creating <strong style=\"color: #A14151\">full-stack applications</strong> with a focus on scalability, security, and performance. My expertise lies in back-end development using Node.js or C#, where I work on developing and maintaining systems that handle high-traffic loads while ensuring code quality and maintainability.",
+        "I also enjoy working on personal projects and exploring new technologies, particularly in areas like web development and desktop applications using frameworks such as React and Electron."
     ],
     "skills": [
         {
             "name": "Back-End",
-            "value": "65%"
+            "value": "80%",
+            "category": true
         },
         {
             "name": "TypeScript",
-            "value": "80%"
+            "value": "95%"
         },
         {
-            "name": "MongoDB",
-            "value": "70%"
+            "name": "C#",
+            "value": "65%"
+        },
+        {
+            "name": "Database (SQL & NoSQL)",
+            "value": "75%"
         },
         {
             "name": "Front-End",
-            "value": "60%"
+            "value": "80%",
+            "category": true
         },
         {
-            "name": "Vue.JS",
-            "value": "65%"
+            "name": "React",
+            "value": "80%"
+        },
+        {
+            "name": "Vue",
+            "value": "40%"
         }
     ]
 }

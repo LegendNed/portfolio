@@ -9,12 +9,14 @@ interface ModalProps {
     fullscreen?: boolean,
     closable?: boolean,
     width: string,
+    alwaysOnTop?: boolean,
     children: React.ReactNode
 }
 
 export default function Modal(props: ModalProps) {
-    const { name, title, fullscreen, closable = true, width, children } = props
+    const { name, title, fullscreen, closable = true, width, alwaysOnTop, children } = props
     const [isOpen, setIsOpen] = useState(false)
+    const [zIndex, setZIndex] = useState(1000)
     const nodeRef = useRef(null);
 
     useEffect(() => {
@@ -22,7 +24,19 @@ export default function Modal(props: ModalProps) {
             if (win.name !== name) return;
             setIsOpen(prev => win.force ?? !prev);
         });
-    }, []);
+
+        emitter.on("focus-window", (win: { name: string }) => {
+            if (win.name === name) setZIndex(2000);
+            else setZIndex(1000)
+        });
+
+        return () => {
+            emitter.off("toggle-window");
+            emitter.off("focus-window");
+        };
+    }, [name]);
+
+    const handleDragStart = () => emitter.emit("focus-window", { name });
 
     return (
         <ReactModal
@@ -33,8 +47,18 @@ export default function Modal(props: ModalProps) {
             ariaHideApp={false}
             className={"window"}
         >
-            <Draggable handle=".window-navigation" nodeRef={nodeRef} defaultPosition={{ x: window.innerWidth / 2, y: (window.innerHeight / 2 ) }}>
-                <div className="window-content " style={{ width, zIndex: 1000 }} ref={nodeRef}>
+            <Draggable 
+                handle=".window-navigation" 
+                nodeRef={nodeRef} 
+                defaultPosition={{ x: window.innerWidth / 2, y: (window.innerHeight / 2 ) }}
+                onStart={handleDragStart}
+            >
+                <div 
+                    className="window-content" 
+                    style={{ width, zIndex: alwaysOnTop ? 5000 : zIndex }} 
+                    ref={nodeRef}
+                    onClick={handleDragStart}
+                >
                     <div className="window-navigation">
                         <div className="traffic-lights focus">
                             <button

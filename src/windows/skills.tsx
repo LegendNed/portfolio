@@ -14,7 +14,7 @@ export default function Skills() {
             <div style={{ marginTop: "20px" }} />
             {skills.skills.map(skill => (
                 <div key={skill.name}>
-                    <h4>{skill.name}</h4>
+                    <h4 style={{ color: skill?.category ? "#A14151" : ""}}>{skill.name}</h4>
                     <div className="progress">
                         <div className="progress-bar" style={{width: skill.value}} />
                     </div>

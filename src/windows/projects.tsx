@@ -15,25 +15,26 @@ export default function Projects() {
 
     return (
         <>
-            <Modal name="project" title="Notepad" width="320px">
+            <Modal name="project" title="Notepad" width="320px" alwaysOnTop={true}>
                 <h3 style={{ marginTop: "7px" }}>
-                    URL: 
-                    <a
-                        style={{marginLeft: "5px"}}
-                        href={current.url?.href || ''}
-                        target={current.url?.href ? '_blank' : ''}
-                    >
-                        {current.url?.text || "Nothing selected"}
-                    </a>
+                    URL:
+                    {current.url?.href ?
+                        <a
+                            style={{ marginLeft: "5px" }}
+                            href={current.url?.href || ''}
+                            target={current.url?.href ? '_blank' : ''}
+                        >
+                            {current.url?.text || "Nothing selected"}
+                        </a> : current.url?.text}
                 </h3>
-                <h3 style={{marginTop: "-15px"}}>
+                <h3 style={{ marginTop: "-15px" }}>
                     Position: {current.position || "Nothing selected"}
                 </h3>
-                <h3 style={{marginTop: "-15px"}}>
+                <h3 style={{ marginTop: "-15px" }}>
                     {current.period}
                 </h3>
 
-                <p style={{whiteSpace: "pre-wrap"}}>{current.text}</p>
+                <p style={{ whiteSpace: "pre-wrap" }}>{current.text}</p>
             </Modal>
 
             <Modal name="projects" title="Projects Explorer" width="420px">
@@ -55,7 +56,7 @@ export default function Projects() {
                     ))}
                 </div>
 
-                <div className="divider" data-text="Obsolete Projects">
+                <div className="divider" data-text="Previous Projects">
                     <hr className="left" />
                     <hr className="right" />
                 </div>
