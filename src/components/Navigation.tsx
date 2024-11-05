@@ -28,10 +28,12 @@ export default function Navigation() {
     }
 
     const [lData, setLData] = useState({} as SpotifyResponse)
-
     async function getListeningData() {
-        const response = await fetch("/api/listening")
-        const data = await response.json()
+        let data = {} as SpotifyResponse;
+        try {
+            const response = await fetch("/api/listening")
+            data = await response.json()
+        } catch {}
         setLData(data)
         emitter.emit("toggle-window", { name: "listening" })
     }
