@@ -39,8 +39,8 @@ export default function Navigation() {
     }
     function formatName(data: SpotifyResponse, truncate?: boolean) {
         if (!data.is_playing) return "Currently nothing...";
-        return data.item.name.length >= 26 && truncate
-            ? `${data.item.name.substring(0, 26)}...`
+        return data.item.name.length >= 20 && truncate
+            ? `${data.item.name.substring(0, 20)}...`
             : data.item.name;
     }
 
